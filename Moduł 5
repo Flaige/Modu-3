@@ -1,1 +1,27 @@
+// //Zadanie a) Moduł 5
+function doubleArray(arr) {
+    return arr.map(num => num * 2);
+}
 
+const numbers = [5, 9, 45, 345, 555];
+const doubledNumbers = doubleArray(numbers);
+
+console.log('Oryginalna tablica:', numbers);
+console.log('Podwojona tablica:', doubledNumbers);
+
+
+// //Zadanie b) Moduł 5
+function getStudentNames(students) {
+    return students.map(student => student.name);
+}
+
+const studentList = [
+    { name: 'Alicja', age: 20 },
+    { name: 'Bartek', age: 22 },
+    { name: 'Paweł', age: 23 }
+];
+
+const studentNames = getStudentNames(studentList);
+
+console.log('Oryginalna tablica obiektów studentów:', studentList);
+console.log('Lista imion studentów:', studentNames);
