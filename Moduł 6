@@ -1,0 +1,81 @@
+// 1 przykład użycia "This"
+
+const friend = {
+    name: 'Franek',
+    hi: function() {
+        console.log(`${this.name} mówi cześć`);
+    }
+};
+
+friend.hi();
+
+// this jest używane wewnątrz metody bark obiektu dog.
+// this odnosi się do obiektu dog, co oznacza, że 
+// this.name odwołuje się do właściwości name tego obiektu.
+// Wywołanie dog.bark() sprawia, że this wewnątrz metody bark
+// wskazuje na obiekt dog, umożliwiając dostęp do jego właściwości name.
+
+
+
+// 2 przykład użycia "this"
+
+function showThis() {
+    console.log(this);
+}
+
+showThis();
+
+// this jest używane wewnątrz funkcji showThis.
+// Kiedy funkcja showThis jest wywoływana w globalnym kontekście (bez żadnego obiektu),
+//  this odnosi się do globalnego obiektu.
+// W przeglądarce, this wskazuje na obiekt window, który jest globalnym obiektem przeglądarki.
+
+
+// 1 zadanie
+
+const person = {
+    username: 'Maciej',
+    showName: function() {
+        console.log(this.username);
+    }
+};
+
+// Testowanie obiektu
+person.showName(); // "Maciej"
+
+// 2 zadanie
+
+// Definicja obiektu reprezentującego półkę na książki
+const bookshelf = {
+    // Właściwość authors przechowuje tablicę z imionami autorów
+    authors: [],
+    
+    // Metoda getAuthors zwraca tablicę autorów przechowywanych na półce z książkami
+    getAuthors: function() {
+        // this odnosi się do bieżącego obiektu bookshelf
+        return this.authors;
+    },
+    
+    // Metoda addAuthor dodaje imię autora do tablicy authors
+    addA"uthor: function(authorName) {
+        // this odnosi się do bieżącego obiektu bookshelf
+        this.authors.push(authorName);
+    }
+};
+
+// Testowanie obiektu
+
+// Dodanie autora "J.K. Rowling" do tablicy authors
+bookshelf.addAuthor('J.K. Rowling');
+
+// Dodanie autora "George R.R. Martin" do tablicy authors
+bookshelf.addAuthor('George R.R. Martin');
+
+// Dodanie autora "J.R.R. Tolkien" do tablicy authors
+bookshelf.addAuthor('J.R.R. Tolkien');
+
+// Pobranie i wyświetlenie listy autorów z tablicy authors
+console.log(bookshelf.getAuthors()); // ["J.K. Rowling", "George R.R. Martin", "J.R.R. Tolkien"]
+
+//Użycie this wewnątrz metody 'getAuthors' odnosi się do bieżącego obiektu bookshelf, umożliwiając dostęp do jego właściwości authors.
+//Użycie this wewnątrz metody 'addAuthor' odnosi się do bieżącego obiektu bookshelf, umożliwiając dodanie nowego autora do jego właściwości authors.
