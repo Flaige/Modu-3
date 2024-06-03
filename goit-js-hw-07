@@ -1,0 +1,167 @@
+// Zadanie 1
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lista Kategorii</title>
+</head>
+
+<body>
+  <h1>Kategorie</h1>
+  <ul id="categories">
+    <li class="item">
+      <h2>Animals</h2>
+      <ul>
+        <li>Cat</li>
+        <li>Hamster</li>
+        <li>Horse</li>
+        <li>Parrot</li>
+      </ul>
+    </li>
+    <li class="item">
+      <h2>Products</h2>
+      <ul>
+        <li>Bread</li>
+        <li>Parsley</li>
+        <li>Cheese</li>
+      </ul>
+    </li>
+    <li class="item">
+      <h2>Technologies</h2>
+      <ul>
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JavaScript</li>
+        <li>React</li>
+        <li>Node.js</li>
+      </ul>
+    </li>
+  </ul>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const items = document.querySelectorAll('#categories > .item');
+      console.log(`Liczba kategorii: ${items.length}`);
+
+      items.forEach(item => {
+        const title = item.querySelector('h2').textContent;
+        const elementsCount = item.querySelectorAll('ul li').length;
+        console.log(`Kategoria: ${title}, Liczba elementów: ${elementsCount}`);
+      });
+    });
+  </script>
+</body>
+
+</html>
+
+// Zadanie 2
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lista Składników</title>
+</head>
+
+<body>
+  <h1>Składniki</h1>
+  <ul id="ingredients"></ul>
+
+  <script>
+    const ingredients = [
+      "Potatoes",
+      "Mushrooms",
+      "Garlic",
+      "Tomatoes",
+      "Herbs",
+      "Condiments"
+    ];
+
+    // Pobierz listę ul#ingredients
+    const ingredientsList = document.getElementById('ingredients');
+
+    // Utwórz fragment dokumentu dla optymalnego dodawania elementów
+    const fragment = document.createDocumentFragment();
+
+    // Iteruj przez każdy składnik w tablicy ingredients
+    ingredients.forEach(ingredient => {
+      // Utwórz element li
+      const li = document.createElement('li');
+      // Ustaw zawartość tekstową elementu li na nazwę składnika
+      li.textContent = ingredient;
+      // Dodaj klasę item do elementu li
+      li.classList.add('item');
+      // Dodaj element li do fragmentu
+      fragment.appendChild(li);
+    });
+
+    // Dodaj fragment z wszystkimi elementami li do listy ul#ingredients w jednej operacji
+    ingredientsList.appendChild(fragment);
+  </script>
+</body>
+
+</html>
+
+// Zadanie 3
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Galeria Obrazów</title>
+  <style>
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      list-style: none;
+      padding: 0;
+    }
+
+    .gallery li {
+      flex: 1 1 calc(33.333% - 10px);
+    }
+
+    .gallery img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Galeria Obrazów</h1>
+  <ul class="gallery"></ul>
+
+  <script>
+    const images = [
+      {
+        url: "https://images.pexels.com/photos/140134/pexels-photo-140134.jpeg?dpr=2&h=750&w=1260",
+        alt: "White and Black Long Fur Cat",
+      },
+      {
+        url: "https://images.pexels.com/photos/213399/pexels-photo-213399.jpeg?dpr=2&h=750&w=1260",
+        alt: "Orange and White Koi Fish Near Yellow Koi Fish",
+      },
+      {
+        url: "https://images.pexels.com/photos/219943/pexels-photo-219943.jpeg?dpr=2&h=750&w=1260",
+        alt: "Group of Horses Running",
+      },
+    ];
+
+    const gallery = document.querySelector('.gallery');
+
+    const galleryItems = images.map(({ url, alt }) =>
+      `<li><img src="${url}" alt="${alt}"></li>`
+    ).join('');
+
+    gallery.insertAdjacentHTML('beforeend', galleryItems);
+  </script>
+</body>
+
+</html>
